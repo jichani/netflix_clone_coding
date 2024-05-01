@@ -1,0 +1,12 @@
+main img.static-image {
+  background-position: 50%;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
+  width: 100%;
+}

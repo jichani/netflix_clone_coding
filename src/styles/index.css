@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "NetflixSans-Regular";
+  font-weight: normal;
+  src: url("./fonts/NetflixSans-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "NetflixSans-Regular";
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
