@@ -52,6 +52,11 @@
   );
 }
 
+/* 스크롤 시 발동되는 이벤트와 연관된 css */
+.main-header.menu-navigation.scrolled {
+  background-color: rgb(20, 20, 20);
+}
+
 .main-header {
   align-items: center;
   display: flex;

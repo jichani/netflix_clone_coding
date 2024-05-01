@@ -1,41 +1,38 @@
+import React, { useState, useEffect } from "react";
 import "../styles/Header.css";
-import NetflixLogo from "../assets/netflix.png";
+import Logo from "./Logo";
+import PrimaryNavigation from "./PrimaryNavigation";
 import SecondaryNavigation from "./SecondaryNavigation";
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // 50px 이상 스크롤됐을 때를 조건으로 설정
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    // 스크롤 이벤트 리스너 등록
+    window.addEventListener("scroll", handleScroll);
+
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="pinning-header">
       <div className="pinning-header-container">
         <div
-          className="main-header has-billboard menu-navigation"
-          role="navigation"
+          className={`main-header has-billboard menu-navigation ${
+            scrolled ? "scrolled" : ""
+          }`}
         >
-          <a href="">
-            <img className="logo" src={NetflixLogo} width={94} alt="logo" />
-          </a>
-          <ul className="tabbed-primary-navigation">
-            <li className="navigation-menu">
-              <a className="menu-trigger">메뉴</a>
-            </li>
-            <li className="navigation-tab">
-              <a className="current active">홈</a>
-            </li>
-            <li className="navigation-tab">
-              <a>시리즈</a>
-            </li>
-            <li className="navigation-tab">
-              <a>영화</a>
-            </li>
-            <li className="navigation-tab">
-              <a>NEW! 요즘 대세 콘텐츠</a>
-            </li>
-            <li className="navigation-tab">
-              <a>내가 찜한 리스트</a>
-            </li>
-            <li className="navigation-tab">
-              <a>언어별로 찾아보기</a>
-            </li>
-          </ul>
+          <Logo />
+          <PrimaryNavigation />
           <SecondaryNavigation />
         </div>
       </div>
