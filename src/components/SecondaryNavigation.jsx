@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Profile from "../assets/profile.png";
 
 export default function SecondaryNavigation() {
+  const [secondaryNavOpen, setSecondaryNavOpen] = useState(false);
+
   return (
     <div className="secondary-navigation">
       <div className="nav-element">
@@ -56,7 +58,11 @@ export default function SecondaryNavigation() {
       </div>
       <div className="nav-element">
         <div className="account-menu-item">
-          <div className="account-dropdown-button">
+          <div
+            className="account-dropdown-button"
+            onMouseEnter={() => setSecondaryNavOpen(true)}
+            onMouseLeave={() => setSecondaryNavOpen(false)}
+          >
             <a
               href=""
               role="button"
@@ -65,10 +71,13 @@ export default function SecondaryNavigation() {
               aria-label="&amp;#xC9C0;&amp;#xCC2C;&nbsp;- 계정 &amp; 설정"
             >
               <span className="profile-link" role="presentation">
-                <img src={Profile} alt="profile" />
+                <img className="profile-icon" src={Profile} alt="profile" />
               </span>
             </a>
-            <span className="caret" role="presentation"></span>
+            <span
+              className={`caret ${secondaryNavOpen ? "open" : ""}`}
+              role="presentation"
+            ></span>
           </div>
         </div>
       </div>
