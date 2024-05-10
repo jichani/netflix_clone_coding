@@ -3,16 +3,17 @@ import "../styles/Header.css";
 import Logo from "./Logo";
 import PrimaryNavigation from "./PrimaryNavigation";
 import SecondaryNavigation from "./SecondaryNavigation";
+import throttle from "lodash/throttle";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       // 50px 이상 스크롤됐을 때를 조건으로 설정
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
-    };
+    }, 300); // 0.3초 쓰로틀링
 
     // 스크롤 이벤트 리스너 등록
     window.addEventListener("scroll", handleScroll);

@@ -118,11 +118,40 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid hsla(0, 0%, 100%, 0.85);
 }
 
-.searchTab svg {
-  color: white;
+.icon-close:before {
+  content: "\e762";
+}
+
+.searchTab .searchInput {
+  background-color: transparent;
+  border: none;
+  padding: 7px 14px 7px 7px;
+  color: #fff;
+
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  width: 212px;
+}
+
+.searchTab .searchInput::placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.searchTab .searchInput:focus-visible {
+  outline: none;
 }
 
 .notifications-menu {
